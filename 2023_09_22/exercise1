@@ -1,1 +1,47 @@
+# Napisz program który prosi użytkownika o podanie wartości stopni temperatury oraz w jakiej skali zostały podane.
+# Następnie wypisuje podaną temperaturę w pozostałych 2 skalach
+#
+# (x°F - 32) * 0.5556 = °C
+# (x°C * 1.8) + 32 = °F
+#
+# x°C + 273.15 = °K
+# x°K - 273.15 = °C
+
+def konw_temp():
+
+    #tego może nie być
+    skala = ''
+    wysTemp = 0.0
+    C = 0.0
+    K = 0.0
+    F = 0.0
+    #i dotąd
+
+
+    skala = input('Podaj skale temperatury [C/K/F]: ')
+    wysTemp = float(input('Podaj wysokość temperatury: '))
+
+    if skala == 'C':
+        C = wysTemp
+        K = C + 273.15
+        F = C * 1.8 + 32
+    elif skala == 'K':
+        K = wysTemp
+        C = K - 273.15
+        F = C * 1.8 + 32
+    elif skala == 'F':
+        F = wysTemp
+        C = (F - 32) * 0.5556
+        K = C + 273.15
+    else:
+        print('Wprowadzono nie poprawne dane skali. Podaj [C/K/F]')
+
+    print('Podana wysokość temperatury w C to:',C)
+    print('Podana wysokość temperatury w K to:',K)
+    print('Podana wysokość temperatury w F to:',F)
+
+
+
+if __name__ == '__main__':
+    konw_temp()
 
